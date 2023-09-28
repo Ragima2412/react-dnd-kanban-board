@@ -4,7 +4,7 @@
 
 
 .Board {
-    padding: 3vh;
+    padding: 3vh 12vh;
     .AddItem {
         background-color: $color-white;
         padding: 1vh;
@@ -29,4 +29,26 @@
         cursor: pointer;
         box-shadow: 0 0 12px 0 $add-button-shadow;
       }
+      .Headings,
+      .Columns {
+        margin-top: 2vh;
+        @include flex-box(space-between);
+        
+        .Heading {
+         flex: 0 1 25%;
+         background-color: $color-dark-purple;
+         border-radius: 2vh;
+         color: $color-white;
+         font-size: 1.9vh;
+         text-align: center;
+         padding: 0.5vh 1vh;
+         font-weight: 600;
+
+        }
+      }
+      .Column {
+        padding-top: 2vh;
+        flex: 0 25%;
+      }
+
 }

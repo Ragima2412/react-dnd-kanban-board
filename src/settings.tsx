@@ -8,5 +8,6 @@ export const icons = {
     searchIcon: searchIcon,
     taskIcon: taskIcon,
     boardIcon: boardIcon,
-    closeIcon: closeIcon
+    closeIcon: closeIcon,
 }
+

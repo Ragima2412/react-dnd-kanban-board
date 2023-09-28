@@ -10,8 +10,7 @@ export interface IModal {
     buttonName: string,
     title:string,
     styles: Record<string, unknown>,
-    storageKey: string,
-    
+    storageKey: string,    
 }
 
 export interface IInputDetails {  
@@ -32,3 +31,4 @@ export interface ITask {
  item: IBoard,
  type: string
 }
+

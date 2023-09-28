@@ -15,7 +15,7 @@ export const Task: FC<ITask> = ({ item, type }) => {
       </div>)
   } else {
     return(
-    <div className={classes.Item}>
+    <div className={classes.Item} >
       <div className={[classes.Item, classes.Items].join('')}>
         <span className={[classes.Item, classes.ItemTag, classes.Wrapper].join('')}>
           {item.name}
@@ -32,7 +32,6 @@ export const Task: FC<ITask> = ({ item, type }) => {
         </span>
         <span>{/* <i class='fas fa-comment'></i> */}3</span>
         <span>{/* <i class='fas fa-paperclip'></i> */}7</span>
-        <span className={classes.Item}></span>
       </div>
     </div>)
   }

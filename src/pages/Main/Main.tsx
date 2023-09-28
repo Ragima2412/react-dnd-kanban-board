@@ -43,13 +43,7 @@ export const Main = () => {
             <Link to='/'>
               <img src={icons.boardIcon} alt='boardIcon' />
               <p>Boards</p>
-            </Link>
-            {/* {window.location.pathname === '/'&& 
-            <Link to='/board'>
-              <img src={icons.taskIcon} alt='taskIcon' />
-              <p>New Task</p>
-            </Link>            
-            } */}
+            </Link>          
           </nav>
           <main className={classes.Context}>
             <Routes>

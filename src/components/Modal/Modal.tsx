@@ -3,10 +3,11 @@ import classes from './Modal.module.scss'
 import { IModal, IInputDetails } from '../../types/types'
 import { icons } from '../../settings'
 import { Storage } from '../../storage/storage'
-import { v4 as uuidv4 } from 'uuid'
+import { v4 as uuidv4 } from 'uuid';
+import { useParams } from 'react-router-dom'
+
 
 export const Modal: FC<IModal> = ({
-  title,
   styles,
   inputs,
   closeModalHandler,
@@ -16,8 +17,8 @@ export const Modal: FC<IModal> = ({
   const [newItem, setNewItem] = useState<any>({ id: uuidv4() })
   const [isDisabled, setIsDisabled] = useState<boolean>(false)
   const [value, setInputValue] = useState<string>('')
-  const newObj: any = {}
-
+  const newObj: any = {};
+  const url = useParams();
   const writeInputHandler = (e: any, el: any) => {
     
     const id =
@@ -28,18 +29,20 @@ export const Modal: FC<IModal> = ({
     setNewItem({ ...newItem, ...newObj })
     setInputValue(e?.target?.value);
     checkEmptyField();
-    // setIsError && setIsError({...isError, [id]: checkInputValue(e.target.value, el?.type, validators)});
   }
 
   const checkEmptyField= (): boolean => {
     const result = Object.values(newItem).findIndex((i) => i === '') === -1 ? true : false
     setIsDisabled(result);
-    console.log(isDisabled)
     return result;
   }
 
   const submitHandler = () => {
-    Storage.setItem(storageKey, newItem);   
+    let parentId: string | undefined;
+    if(storageKey === 'tasks') {
+      parentId = url.id && url.id.replace('id=', '');
+    } 
+    Storage.setItem(storageKey, {...newItem, boardId: parentId});   
     closeModalHandler();
   }
 
