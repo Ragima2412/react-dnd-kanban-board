@@ -1,0 +1,9 @@
+@import '../../assets/scss/variables';
+@import '../../assets/scss/mixins';
+
+.BoardList {
+    @include flex-box(start, center, column);
+    width: 100%;
+    min-height: 100%;
+
+}

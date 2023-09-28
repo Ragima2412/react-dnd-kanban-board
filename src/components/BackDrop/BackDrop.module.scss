@@ -1,0 +1,26 @@
+@import '../../assets/scss/variables';
+@import '../../assets/scss/mixins';
+
+.Backdrop{
+    width:100%;
+    height:100%;
+    left:0;
+    top:0;
+    z-index: 1000;
+    @include flex-box;
+}
+
+.Absolute{
+    position: absolute;
+}
+
+.Fixed{
+    position: fixed;
+}
+.Light{
+    background: $color-grey;
+
+}
+.Dark{
+    background-color: rgba(87, 86, 86, 0.5);
+}

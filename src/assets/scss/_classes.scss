@@ -1,0 +1,143 @@
+@import "src/assets/scss/variables";
+@import "src/assets/scss/mixins";
+
+
+.GroupInput {
+    position: relative;
+    margin-bottom: 45px;
+
+    input {
+        font-size: 18px;
+        padding: 10px 10px 10px 5px;
+        display: block;
+        width: 300px;
+        border: none;
+        border-bottom: 1px solid $color-grey;
+    }
+
+    input:focus {
+        outline: none;
+    }
+
+    label {
+        color: #999;
+        font-size: 18px;
+        font-weight: normal;
+        position: absolute;
+        pointer-events: none;
+        left: 5px;
+        top: 10px;
+        transition: 0.2s ease all;
+        -moz-transition: 0.2s ease all;
+        -webkit-transition: 0.2s ease all;
+    }
+ 
+
+    /* active state */
+    input:focus~label,
+    input:valid~label {
+        top: -20px;
+        font-size: 14px;
+        color: $color-blue;
+    }
+ 
+    .Bar {
+        position: relative;
+        display: block;
+        width: 300px;
+    }
+
+    .Bar:before,
+    .Bar:after {
+        content: '';
+        height: 2px;
+        width: 0;
+        bottom: 1px;
+        position: absolute;
+        background: $color-blue;
+        transition: 0.2s ease all;
+        -moz-transition: 0.2s ease all;
+        -webkit-transition: 0.2s ease all;
+    }
+
+    .Bar:before {
+        left: 50%;
+    }
+
+    .Bar:after {
+        right: 50%;
+    }
+
+    input:focus~.Bar:before,
+    input:focus~.Bar:after {
+        width: 50%;
+    }
+
+    input:focus~.Highlight {
+        -webkit-animation: inputHighlighter 0.3s ease;
+        -moz-animation: inputHighlighter 0.3s ease;
+        animation: inputHighlighter 0.3s ease;
+    }
+
+    .Highlight {
+        position: absolute;
+        height: 60%;
+        width: 100px;
+        top: 25%;
+        left: 0;
+        pointer-events: none;
+        opacity: 0.5;
+    }
+
+    @-webkit-keyframes inputHighlighter {
+        from {
+            background: #5264AE;
+        }
+
+        to {
+            width: 0;
+            background: transparent;
+        }
+    }
+
+    @-moz-keyframes inputHighlighter {
+        from {
+            background: $color-blue;
+        }
+
+        to {
+            width: 0;
+            background: transparent;
+        }
+    }
+
+    @keyframes inputHighlighter {
+        from {
+            background: $color-blue;
+        }
+
+        to {
+            width: 0;
+            background: transparent;
+        }
+    }
+}
+
+.Button {
+    @include flex-box;
+    width: 15vh;
+    padding:1vh 0;
+    border-radius: 0.5vh;
+    border: none;
+    background-color: $color-blue;
+    color: $color-white;
+    &:hover {
+        background-color: $color-dark-purple;
+        cursor: pointer;
+    }
+    &:disabled {
+        background-color: $color-grey;
+    }
+}
+
+

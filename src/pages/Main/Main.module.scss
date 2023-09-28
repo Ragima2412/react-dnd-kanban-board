@@ -1,0 +1,112 @@
+@import '../../assets/scss/variables';
+@import '../../assets/scss/mixins';
+
+
+.Main {
+    width: 100px;
+    height: 100px;
+    background-color: $bgcolor-grey;
+    height: 100vh;
+    width: 100%;
+
+    .Header {
+        @include flex-box;
+        height: 9.2vh;
+
+        .Logo {
+            height: 100%;
+            @include flex-box;
+            background-color: $color-dark-purple;
+            color: $color-white;
+            font-weight: 600;
+            font-size: 3vh;
+            width: 15.6vh;
+            // padding: 0 2.5vh;
+        }
+
+        .Search {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            padding-left: 1.5vh;
+            background: $color-blue;
+            background: $color-gradient;
+            @include flex-box(start, center);
+
+            .Icon {
+                width: 3.5vh;
+                height: 3.5vh;
+                cursor: pointer;
+                margin-right: 1vh;
+            }
+
+            .Input {
+                all: unset;
+                width: 40vh;
+                height: 5vh;
+                color: $color-white;
+                font-size: 1.7vh;
+
+                &::placeholder {
+                    color: $color-white;
+                    font-weight: 600;
+                    font-size: 1.7vh;
+                }
+
+                &:focus::placeholder {
+                    color: transparent;
+                }
+            }
+        }
+    }
+
+    .MainContainer {
+        @include flex-box(start);
+
+        .NavBar {
+            background-color: $color-white;
+            height: calc(100vh - 9.2vh);
+            padding-top: 10vh;
+            width: 15.6vh;
+            gap: 10vh 0;
+            @include flex-box(start, center, column);
+
+            &>a {
+                @include flex-box(center, center, column);
+                gap: 1vh 0;
+                text-decoration: none;
+                color: $color-grey;
+                font-weight: 500;
+                text-transform: lowercase;
+
+                &:hover {
+                    color: $color-dark-grey;
+                }
+            }
+        }
+
+        .Context {
+            padding-top: 15vh;
+            width: 100%;
+            height: calc(100vh - 9.2vh);
+            background-image: linear-gradient(62deg, rgba(1, 95, 183, 0.9732216701223994) 13%, rgba(255, 122, 151, 0.5) 4%), linear-gradient(44deg, rgba(0, 43, 99, 0.07922090238615942) 39%, rgba(242, 140, 143, 0.5) 18%), linear-gradient(118deg, rgba(84, 202, 242, 0.03152997265339608) 40%, rgba(247, 155, 187, 0.5) 54%), linear-gradient(58deg, rgba(90, 90, 237, 0.16144443572260592) 83%, rgba(249, 156, 142, 0.5) 23%);
+            background-blend-mode: normal, lighten, multiply, hard-light;
+        }
+    }
+
+    @media only screen and (max-width: 770px) {
+        .Header {
+            @include flex-box(center, start, column);
+
+            .Logo {
+                width: 100%;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 580px) {
+        .Input {
+            width: 25vh !important;
+        }
+    }
+}
