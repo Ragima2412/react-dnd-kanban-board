@@ -1,7 +1,7 @@
 export interface IItemWrapper {
     title: string,
     action: string,
-    items: Array<Record<string, unknown>>,
+    items: Array<IBoard>,
     handler: () => void;
 }
 export interface IModal {
@@ -24,5 +24,11 @@ export interface IInputDetails {
         value: null
 }
 export type IBoard = {
-    name: {value: string}
+    id: string,
+    name: string
+}
+
+export interface ITask {
+ item: IBoard,
+ type: string
 }

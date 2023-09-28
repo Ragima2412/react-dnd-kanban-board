@@ -1,7 +1,11 @@
 @import "src/assets/scss/variables";
 @import "src/assets/scss/mixins";
 
-
+a:-webkit-any-link {
+    text-decoration: none;
+    color: $color-dark-grey;
+    cursor: pointer;
+  }
 .GroupInput {
     position: relative;
     margin-bottom: 45px;

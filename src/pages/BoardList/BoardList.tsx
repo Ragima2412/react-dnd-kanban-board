@@ -17,9 +17,10 @@ export const BoardList = () => {
   };
 
 useEffect(() => {
-  setBoards(Storage.getAllData());
-}, []);
-console.log(boards)
+  const { boards } = Storage.getAllData();
+  setBoards(boards);
+}, [isModalOpen]);
+
   return (
     <>
       {isModalOpen ? (
@@ -45,7 +46,7 @@ console.log(boards)
         </Backdrop>
       ) : (
         <div className={classes.BoardList}>
-          <ItemWrapper title='Boards' action='Create board' handler={submitHandler} items={[]} />
+          <ItemWrapper title='Boards' action='Create board' handler={submitHandler} items={boards} />
         </div>
       )}
     </>

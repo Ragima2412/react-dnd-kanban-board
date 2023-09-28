@@ -1,21 +1,43 @@
 @import '../../assets/scss/variables';
 @import '../../assets/scss/mixins';
 
-// input { outline: none; }
-
-// ul {
-//   list-style: none;
-//   padding: 0;
-// }
 
 .Container{
+  margin-top: 15vh;
   border-radius: 8px;
   width: 100%;
-  max-width: 480px;
-  max-height: 100%;
+  max-width: 35%;
+  max-height: 50vh;
   background-color: $color-white;
   padding: 24px;
   overflow: auto;
+  scrollbar-color: rgba(16, 41, 70, 0.3) transparent;
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar {
+    background-color: transparent;
+    width: 0.86vh;
+    height: 0.86vh;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(16, 41, 70, 0.3);
+    border-radius: 0.86vh;
+  }
+
+&::-webkit-scrollbar {
+    width: .7vh;
+    background-color: #fbfcfb;
+}
+
+&::-webkit-scrollbar-thumb {
+    background-color: #a5a5a8;
+}
+
 }
 
 .Header {
@@ -45,6 +67,7 @@
   height: 40px;
   font-size: 14px;
   display: flex;
+  margin-bottom: 4vh;
 }
 
 .ItemInput,
@@ -72,13 +95,7 @@
 .ItemList {
 
     .Item {
-    //   background-color: #191933;
-    //   border-radius: 4px;
-    //   margin-bottom: 12px;
-    //   display: flex;
-    //   align-items: center;
-    //   padding: 8px;
-      
+         
       input {
         width: 16px;
         height: 16px;
@@ -102,12 +119,8 @@
         &:checked {
           background-size: 10px;
           border: 1px solid var(--checkbox-color);
-          background-color: var(--checkbox-color);
-          
-        //    span {
-        //     color: rgba(255, 255, 255, 0.5);
-        //     text-decoration: line-through rgba(255, 255, 255, 0.8);
-        //   }
+          background-color: var(--checkbox-color);         
+        
         }
       }
       

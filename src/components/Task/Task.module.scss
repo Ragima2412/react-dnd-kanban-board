@@ -1,0 +1,127 @@
+@import '../../assets/scss/variables';
+@import '../../assets/scss/mixins';
+@import '../../assets/scss/classes';
+
+
+:root {
+    --bg:#ebf0f7;
+    --header:#fbf4f6;
+    --text:#2e2e2f;
+    --white:#ffffff;
+    --light-grey:#c4cad3; 
+    --tag-1:#ceecfd;
+    --tag-1-text:#2e87ba;
+    --tag-2:#d6ede2;
+    --tag-2-text:#13854e;
+    --tag-3:#ceecfd;
+    --tag-3-text:#2d86ba;
+    --tag-4:#f2dcf5;
+    --tag-4-text:#a734ba;
+    --purple:#7784ee;
+  }
+  *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', sans-serif;
+    
+  }
+  
+  body {
+    color:var(--text);
+  }
+  
+  @mixin display {
+    display:flex;
+    align-items:center;
+  }
+  
+  .app {
+    background-color:var(--bg);
+    width:100%;
+    min-height:100vh;
+  }
+  
+  h1 {
+    font-size:30px;
+  }
+  
+  .Item {
+    cursor:pointer;
+    background-color:var(--white);
+    padding:1rem;
+    border-radius:8px;
+    width:100%;
+    box-shadow: rgba(48, 47, 47, 0.1) 0px 2px 8px 0px;
+    margin-bottom:1rem;
+    border:3px solid transparent;
+    
+    &:hover {
+      box-shadow: rgba(177, 176, 176, 0.3) 0px 2px 2px 0px;
+      border-color:rgba(193, 204, 221, 0.2)!important;
+    }
+    
+    p {
+      font-size:15px;
+      margin:1.2rem 0;
+    }
+    &.ItemTag {
+      border-radius:100px;
+      padding:2px 13px;
+      font-size:12px;
+      
+      &.Wrapper {
+        color:var(--tag-4-text);
+        background-color:var(--tag-4);
+      }
+      &--design {
+         color:var(--tag-3-text);
+        background-color:var(--tag-3);
+      }
+      &--illustration {
+        color:var(--tag-2-text);
+        background-color:var(--tag-2);
+      }
+      
+    }
+    & .Items { 
+      width:100%;
+      @include display;
+      justify-content:space-between;
+    }
+    
+    &.Options {
+        background:transparent; 
+        border:0;
+      color:var(--light-grey);
+      font-size:17px;
+      }
+    
+    &.Stats {
+      
+      position:relative;
+      width:100%;
+      color:var(--light-grey);
+      
+      font-size:12px;
+      span:not(:last-of-type){
+        margin-right:1rem;
+      }
+      svg {
+        margin-right:5px;
+      }
+    }
+    
+    &.Owner {
+      width:25px;
+      height:25px;
+      border-radius:100rem;
+      background:var(--purple);
+      position:absolute;
+      display:inline-block;
+      right:0;
+      bottom:0;
+      
+    }
+  }  
+  

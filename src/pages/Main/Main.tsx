@@ -1,16 +1,18 @@
 import React, { useRef, useState } from 'react'
-import { Route, Routes, BrowserRouter,  Link  } from 'react-router-dom'
+import { Route, Routes, BrowserRouter,  Link } from 'react-router-dom'
 import { Board, NotFoundPage, BoardList } from '../index';
 import { icons } from '../../settings'
 
 import classes from './Main.module.scss'
 
 export const Main = () => {
-  const inputRef = useRef<HTMLInputElement>(null)
+  const inputRef = useRef<HTMLInputElement>(null);
+
+
   const [searchValue, setSearchValue] = useState<string>('')
 
   const clickHandler = () => inputRef.current && inputRef.current.focus()
-
+  
   return (
     <BrowserRouter>
       <div className={classes.Main}>
@@ -42,15 +44,17 @@ export const Main = () => {
               <img src={icons.boardIcon} alt='boardIcon' />
               <p>Boards</p>
             </Link>
+            {/* {window.location.pathname === '/'&& 
             <Link to='/board'>
               <img src={icons.taskIcon} alt='taskIcon' />
               <p>New Task</p>
-            </Link>
+            </Link>            
+            } */}
           </nav>
           <main className={classes.Context}>
             <Routes>
               <Route path='/' element={<BoardList/>}></Route>
-              <Route path='/board' element={<Board />}></Route>
+              <Route path='/board/:id' element={<Board />}></Route>
               <Route path='*' element={<NotFoundPage />}></Route>
             </Routes>
           </main>
